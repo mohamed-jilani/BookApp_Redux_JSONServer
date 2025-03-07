@@ -17,6 +17,24 @@
       "title": "Bvnu",
       "author": "Vbgb",
       "description": "BG h"
+    },
+    {
+      "title": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "description": "Enscloped",
+      "imageUrl": "https://www.radiofrance.fr/s3/cruiser-production/2016/04/4771340c-0bb3-11e6-b817-005056a87c30/860_1179523982-mme-bovary.jpg",
+      "language": "Français",
+      "price": 588,
+      "id": "a3e2"
+    },
+    {
+      "title": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "description": "La tragedie de m.bovary",
+      "imageUrl": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FMyReactNativeApp-89d97aef-301d-4985-9881-8e10333e8436/ImagePicker/75fc1289-04ba-4aec-858b-ffd4cd7441db.jpeg",
+      "language": "Français",
+      "price": 255,
+      "id": "5468"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
@@ -43,9 +43,32 @@ export default function BookDetails() {
       </View>
 
       <View style={styles.content}>
+        {book.imageUrl ? (
+          <View style={styles.imageContainer}>
+            <Image
+              source={{ uri: book.imageUrl }}
+              style={styles.bookImage}
+              resizeMode="cover"
+            />
+          </View>
+        ) : null}
+
         <View style={styles.titleSection}>
           <Text style={styles.title}>{book.title}</Text>
           <Text style={styles.author}>by {book.author}</Text>
+        </View>
+
+        <View style={styles.infoCard}>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoLabel}>Language</Text>
+            <Text style={styles.infoValue}>{book.language || 'Not specified'}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoLabel}>Price</Text>
+            <Text style={styles.infoValue}>
+              {book.price ? `$${book.price.toFixed(2)}` : 'Not specified'}
+            </Text>
+          </View>
         </View>
 
         <View style={styles.descriptionCard}>
@@ -108,6 +131,16 @@ const styles = StyleSheet.create({
   content: {
     padding: 20,
   },
+  imageContainer: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  bookImage: {
+    width: 200,
+    height: 300,
+    borderRadius: 12,
+    backgroundColor: '#f0f0f0',
+  },
   titleSection: {
     marginBottom: 24,
   },
@@ -120,6 +153,29 @@ const styles = StyleSheet.create({
   author: {
     fontSize: 20,
     color: '#666',
+  },
+  infoCard: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 24,
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+  infoRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8,
+  },
+  infoLabel: {
+    fontSize: 16,
+    color: '#666',
+  },
+  infoValue: {
+    fontSize: 16,
+    color: '#333',
+    fontWeight: '500',
   },
   descriptionCard: {
     backgroundColor: '#fff',
