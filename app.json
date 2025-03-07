@@ -1,11 +1,11 @@
 {
   "expo": {
     "newArchEnabled": true,
-    "name": "MyReactNativeApp",
-    "slug": "MyReactNativeApp",
+    "name": "BookApp",
+    "slug": "BookApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/logo/logo2.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "experiments": {
@@ -17,17 +17,26 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/logo/logo2.png",
+        "backgroundColor": "#283347"
       }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/logo/logo2.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/logo/logo2.png",
+          "imageWidth": 150,
+          "resizeMode": "contain",
+          "background": "#283347"
+        }
+      ]
     ]
   }
 }
