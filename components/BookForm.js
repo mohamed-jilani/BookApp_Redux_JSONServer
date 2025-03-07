@@ -4,9 +4,11 @@ import { useDispatch } from 'react-redux';
 import { addBookAsync } from '../store/bookSlice';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
-const BookForm = ({ onSubmitSuccess }) => {
+const BookForm = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [description, setDescription] = useState('');
@@ -44,15 +46,15 @@ const BookForm = ({ onSubmitSuccess }) => {
           language: language.trim(),
           price: price ? parseFloat(price) : 0,
         })).unwrap();
+        
+        // Clear form and navigate back
         setTitle('');
         setAuthor('');
         setDescription('');
         setImageUrl('');
         setLanguage('');
         setPrice('');
-        if (onSubmitSuccess) {
-          onSubmitSuccess();
-        }
+        router.back();
       } catch (error) {
         console.error('Failed to add book:', error);
       } finally {

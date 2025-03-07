@@ -32,7 +32,19 @@ export default function RootLayout() {
   return (
     <Provider store={store}>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+      <Stack 
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: '#fff' },
+          animation: 'slide_from_right',
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+        }}>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="book/add" options={{ headerShown: false }} />
+        <Stack.Screen name="book/[id]" options={{ headerShown: false }} />
+        <Stack.Screen name="book/edit/[id]" options={{ headerShown: false }} />
+
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
